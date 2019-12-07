@@ -1,0 +1,15 @@
+git clone git@github.com:thebaron24/angular-universal-material.git nasa-search
+
+cd nasa-search
+
+npm i
+
+git remote set-url origin git@github.com:thebaron24/nasa-search.git
+
+git push
+
+ng generate module search --route search --module app.module
+
+ng generate service search/search
+
+ng generate component search/grid --module search.module

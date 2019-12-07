@@ -1,0 +1,17 @@
+<!-- <mat-card> -->
+  <mat-grid-list
+    *ngIf="show"
+    cols="{{state.columns}}"
+    rowHeight="{{state.rowHeight + state.rowUnit}}"
+    gutterSize="{{state.gutter + state.gutterUnit}}"
+  >
+    <mat-grid-tile
+      *ngFor="let item of data?.collection?.items"
+      [colspan]="1"
+      [rowspan]="1"
+      (click)="toggleFullscreen($event)"
+      [ngStyle]="{'background' : 'url(' + item.links[0].href + ') no-repeat center center', '-webkit-filter' : 'grayscale(100%)', 'filter' : 'grayscale(100%)', 'background-size' : 'cover'}"
+    >
+    </mat-grid-tile>
+  </mat-grid-list>
+<!-- </mat-card> -->
