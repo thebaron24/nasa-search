@@ -177,6 +177,24 @@ $material-icons-font-family: 'Material Icons' !default;
   mat-grid-tile {
     background-color: mat-color($primary, 500);
     color: mat-contrast($primary, 500);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0%);
+      -webkit-filter: grayscale(0%);
+    }
+
+    figure {
+      &:hover {
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+      }
+    }
+
   }
 }
 

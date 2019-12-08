@@ -10,7 +10,7 @@
       [colspan]="1"
       [rowspan]="1"
       (click)="toggleFullscreen($event)"
-      [ngStyle]="{'background' : 'url(' + item.links[0].href + ') no-repeat center center', '-webkit-filter' : 'grayscale(100%)', 'filter' : 'grayscale(100%)', 'background-size' : 'cover'}"
+      [ngStyle]="{'background-image' : 'url(' + item.links[0].href + ')'}"
     >
     </mat-grid-tile>
   </mat-grid-list>
