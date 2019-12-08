@@ -9,8 +9,8 @@
       *ngFor="let item of data?.collection?.items"
       [colspan]="1"
       [rowspan]="1"
-      (click)="toggleFullscreen($event)"
       [ngStyle]="{'background-image' : 'url(' + item.links[0].href + ')'}"
+      (click)="openDialog(item)"
     >
     </mat-grid-tile>
   </mat-grid-list>

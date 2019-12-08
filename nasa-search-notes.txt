@@ -13,3 +13,5 @@ ng generate module search --route search --module app.module
 ng generate service search/search
 
 ng generate component search/grid --module search.module
+
+ng generate component search/modal --module search.module

@@ -2,6 +2,8 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, switchMap } from "rxjs/operators";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-grid',
@@ -52,7 +54,7 @@ export class GridComponent implements OnDestroy {
     map((state: BreakpointState) => state)
   );
 
-  constructor(public breakpointObserver: BreakpointObserver) {
+  constructor(public breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
     this.subscriptions.widthChange = this.widthChange$.subscribe((state: BreakpointState) => {
       if(state.matches) {
         console.info("layout state", state.breakpoints);
@@ -71,6 +73,18 @@ export class GridComponent implements OnDestroy {
 
   toggleFullscreen(event) {
     console.log(event);
+  }
+
+  openDialog(item): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      // width: '100%',
+      data: { item }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
 
 }

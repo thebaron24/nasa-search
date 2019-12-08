@@ -182,6 +182,7 @@ $material-icons-font-family: 'Material Icons' !default;
     background-size: cover;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+    transition: all 0.5s ease;
 
     &:hover {
       filter: grayscale(0%);
