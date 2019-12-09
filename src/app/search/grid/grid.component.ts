@@ -58,11 +58,11 @@ export class GridComponent implements OnDestroy {
     this.subscriptions.widthChange = this.widthChange$.subscribe((state: BreakpointState) => {
       if(state.matches) {
         console.info("layout state", state.breakpoints);
-        if(state.breakpoints[Breakpoints.XSmall]) this.state.columns = 1;
-        if(state.breakpoints[Breakpoints.Small]) this.state.columns = 2;
-        if(state.breakpoints[Breakpoints.Medium]) this.state.columns = 3;
-        if(state.breakpoints[Breakpoints.Large]) this.state.columns = 4;
-        if(state.breakpoints[Breakpoints.XLarge]) this.state.columns = 5;
+        if(state.breakpoints[Breakpoints.XSmall]) this.state.columns = 1, this.state.rowHeight = 400;
+        if(state.breakpoints[Breakpoints.Small]) this.state.columns = 2, this.state.rowHeight = 200;
+        if(state.breakpoints[Breakpoints.Medium]) this.state.columns = 3, this.state.rowHeight = 200;
+        if(state.breakpoints[Breakpoints.Large]) this.state.columns = 4, this.state.rowHeight = 200;
+        if(state.breakpoints[Breakpoints.XLarge]) this.state.columns = 5, this.state.rowHeight = 200;
       }
     })
   }
