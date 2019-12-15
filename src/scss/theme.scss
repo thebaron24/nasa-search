@@ -184,28 +184,58 @@ $material-icons-font-family: 'Material Icons' !default;
     $key: primary
   );
 
-  mat-grid-tile {
-    background-color: mat-color($primary, 500);
-    color: mat-contrast($primary, 500);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    transition: all 0.5s ease;
+  app-grid {
+    .grid-wrapper {
+      position: relative;
+      
+      mat-grid-list {
+        mat-grid-tile {
+          background-color: mat-color($primary, 500);
+          color: mat-contrast($primary, 500);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          filter: grayscale(100%);
+          -webkit-filter: grayscale(100%);
+          transition: all 0.5s ease;
 
-    &:hover {
-      filter: grayscale(0%);
-      -webkit-filter: grayscale(0%);
-    }
+          &:hover {
+            filter: grayscale(0%);
+            -webkit-filter: grayscale(0%);
+          }
 
-    figure {
-      &:hover {
-        filter: grayscale(0%);
-        -webkit-filter: grayscale(0%);
+          figure {
+            &:hover {
+              filter: grayscale(0%);
+              -webkit-filter: grayscale(0%);
+            }
+          }
+
+        }
+      }
+
+      app-loading {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0,0,0,0.5);
+        align-items: center;
+        justify-content: center;
+        transition: all 1.5s ease;
+
+        mat-progress-bar, mat-progress-spinner {
+          opacity: 0.5;
+        }
+
+        &.activated {
+          display: flex;
+        }
       }
     }
-
   }
 }
 

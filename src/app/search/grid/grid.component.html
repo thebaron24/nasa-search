@@ -1,6 +1,5 @@
-<!-- <mat-card> -->
+<section class="grid-wrapper">
   <mat-grid-list
-    *ngIf="show"
     cols="{{state.columns}}"
     rowHeight="{{state.rowHeight + state.rowUnit}}"
     gutterSize="{{state.gutter + state.gutterUnit}}"
@@ -14,4 +13,5 @@
     >
     </mat-grid-tile>
   </mat-grid-list>
-<!-- </mat-card> -->
+  <app-loading [ngClass]="{ 'activated': loading.getSubscribable() | async }"></app-loading>
+</section>

@@ -7,10 +7,11 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
 import { GridComponent } from './grid/grid.component';
 import { ModalComponent } from './modal/modal.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
-  declarations: [SearchComponent, GridComponent, ModalComponent],
+  declarations: [SearchComponent, GridComponent, ModalComponent, LoadingComponent],
   imports: [
     CommonModule,
     MaterialModule,

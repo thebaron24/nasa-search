@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, switchMap } from "rxjs/operators";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-grid',
@@ -54,7 +55,11 @@ export class GridComponent implements OnDestroy {
     map((state: BreakpointState) => state)
   );
 
-  constructor(public breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+    public dialog: MatDialog,
+    public loading: LoadingService
+  ) {
     this.subscriptions.widthChange = this.widthChange$.subscribe((state: BreakpointState) => {
       if(state.matches) {
         console.info("layout state", state.breakpoints);
