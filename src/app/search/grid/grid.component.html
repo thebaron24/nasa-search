@@ -1,4 +1,4 @@
-<section class="grid-wrapper">
+<div class="grid-wrapper">
   <mat-grid-list
     cols="{{state.columns}}"
     rowHeight="{{state.rowHeight + state.rowUnit}}"
@@ -14,4 +14,4 @@
     </mat-grid-tile>
   </mat-grid-list>
   <app-loading [ngClass]="{ 'activated': loading.getSubscribable() | async }"></app-loading>
-</section>
+</div>

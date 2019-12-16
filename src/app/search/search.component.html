@@ -1,17 +1,3 @@
-<!-- <section>
-	<mat-toolbar color="primary" fxLayout="row wrap">
-	  <span fxFlex="1 1 auto">{{name}}</span>
-	  <span>
-	    <mat-form-field [style.fontSize]="'12px'">
-	      <input
-	        matInput
-	        placeholder="Search"
-	        (keyup)="searchTerm$.next($event.target.value)"
-	      >
-	    </mat-form-field>
-	  </span>
-	</mat-toolbar>
-</section> -->
 <mat-toolbar class="sticky-toolbar" color="primary" fxLayout="row wrap">
   <span fxFlex="1 1 auto">{{name}}</span>
   <span>
@@ -25,14 +11,12 @@
   </span>
 </mat-toolbar>
 <article fxLayout="column" fxLayoutAlign="start" fxFlexAlign="center">
-	<section>
-	  <article
-	    fxFlexs
-	    fxLayout='column' fxLayoutAlign="space-between"
-	  >
-	    <section fxFlex>
+	<section
+		fxFlexs
+	    fxLayout='column'
+	    fxLayoutAlign="space-between">
+	    <!-- <section fxFlex> -->
 	      <app-grid #grid></app-grid>
-	    </section>
-	  </article>
+	    <!-- </section> -->
 	</section>
 </article>
