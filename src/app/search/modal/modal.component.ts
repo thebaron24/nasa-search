@@ -17,7 +17,7 @@ export class ModalComponent implements OnInit {
   	console.log("ModalComponent", this.data);
   }
 
-  onNoClick(): void {
+  close(): void {
     this.dialogRef.close();
   }
 

@@ -1,9 +1,12 @@
-<h1 mat-dialog-title>{{ data.item.data[0].title }}</h1>
-<div mat-dialog-content>
-	<img src="{{data.item.links[0].href}}" alt="{{ data.item.data[0].title }}">
-  <p [innerHTML]="data.item.data[0].description"></p>
-</div>
-<div mat-dialog-actions>
-  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
-</div>
+<article>
+	<h1 mat-dialog-title>{{ data.item.data[0].title }}</h1>
+	
+	<div mat-dialog-content>
+		<img src="{{data.item.links[0].href}}" alt="{{ data.item.data[0].title }}">
+	  <p [innerHTML]="data.item.data[0].description"></p>
+	</div>
+	<div mat-dialog-actions>
+	  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+	  <button mat-button [mat-dialog-close]="data" cdkFocusInitial><mat-icon aria-hidden="false" aria-label="close">close</mat-icon></button>
+	</div>
+</article>

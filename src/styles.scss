@@ -10,6 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include angular-material-theme($theme);
   @include mat-theme-general-mixin($theme);
   @include mat-grid-mixin($theme);
+  @include mat-overlay-container-mixin($theme);
   @include mat-base-typography($custom-typography);
   @include mat-checkbox-typography($custom-typography);
   @include angular-material-typography($custom-typography);
@@ -22,6 +23,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include angular-material-theme($theme);
   @include mat-theme-general-mixin($theme);
   @include mat-grid-mixin($theme);
+  @include mat-overlay-container-mixin($theme);
   @include mat-base-typography($custom-typography);
   @include mat-checkbox-typography($custom-typography);
   @include angular-material-typography($custom-typography);

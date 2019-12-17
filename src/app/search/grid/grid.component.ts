@@ -80,10 +80,12 @@ export class GridComponent implements OnDestroy {
     console.log(event);
   }
 
+  //{ panelClass: 'should be same as ' }
   openDialog(item): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       // width: '100%',
-      data: { item }
+      data: { item },
+      panelClass: 'angular-universal-dialog-container'
     });
 
     dialogRef.afterClosed().subscribe(result => {

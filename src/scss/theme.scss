@@ -178,6 +178,25 @@ $material-icons-font-family: 'Material Icons' !default;
   }
 }
 
+@mixin mat-overlay-container-mixin($theme) {
+  $primary: map-get(
+    $map: $theme,
+    $key: primary
+  );
+
+  mat-dialog-container {
+    padding: 24px 5px;
+
+    .mat-dialog-title, .mat-dialog-actions {
+      /*display: inline-flex;*/
+    }
+
+    .mat-dialog-actions {
+      justify-content: flex-end;
+    }
+  }
+}
+
 @mixin mat-grid-mixin($theme) {
   $primary: map-get(
     $map: $theme,
