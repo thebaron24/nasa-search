@@ -3,6 +3,7 @@
     cols="{{state.columns}}"
     rowHeight="{{state.rowHeight + state.rowUnit}}"
     gutterSize="{{state.gutter + state.gutterUnit}}"
+    [@animation]="animationState"
   >
     <mat-grid-tile
       *ngFor="let item of data?.collection?.items"

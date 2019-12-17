@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, switchMap } from "rxjs/operators";
@@ -9,9 +16,30 @@ import { LoadingService } from '../loading.service';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
+
+  animations: [
+    trigger('animation', [
+
+      state('invisible', style({
+        opacity: 0
+      })),
+      
+      state('visible', style({
+        opacity: 1
+      })),
+
+      transition('invisible => visible', [
+        animate('1.5s')
+      ]),
+
+      transition('visible => invisible', [
+        animate('0.5s')
+      ]),
+    ]),
+  ],
 })
-export class GridComponent implements OnDestroy {
+export class GridComponent implements OnInit, OnDestroy {
 
   subscriptions: any = {}
 
@@ -27,6 +55,9 @@ export class GridComponent implements OnDestroy {
     colspan: 1,
     rowspan: 1
   };
+
+  private readonly isAnimated: boolean = true //Where ever you get this value.
+  public animationState: string = 'invisible' //Or Enum with visible/invisible.
 
   viewportSizes = [
     Breakpoints.XSmall,
@@ -70,10 +101,28 @@ export class GridComponent implements OnDestroy {
         if(state.breakpoints[Breakpoints.XLarge]) this.state.columns = 5, this.state.rowHeight = 200;
       }
     })
+
+    this.subscriptions.loading = this.loading.getSubscribable().subscribe(loading => {
+      if (this.isAnimated && loading) {
+        this.animationState = 'invisible'
+      } else if (this.isAnimated && !loading) {
+        this.animationState = 'visible'
+      }
+    });
   }
+
+  public ngOnInit(): void {
+    // if (this.isAnimated) {
+    //   this.animationState = 'visible'
+    // }
+  } 
 
   ngOnDestroy() {
     Object.keys(this.subscriptions).forEach(key => this.subscriptions[key].unsubscribe());
+
+    if (this.isAnimated && this.animationState === 'visible') {
+      this.animationState = 'invisible'
+    }
   }
 
   toggleFullscreen(event) {
